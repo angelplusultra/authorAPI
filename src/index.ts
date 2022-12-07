@@ -10,7 +10,7 @@ connectDB()
 console.log(process.env.CLOUD_NAME, process.env.CLOUD_API_KEY, process.env.CLOUD_API_SECRET)
 
 const app = express()
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 2000
 
 // Body Parser
 app.use(express.json())

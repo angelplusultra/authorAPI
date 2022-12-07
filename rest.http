@@ -1,1 +1,52 @@
-GET http://localhost:8000/api/authors?fn=G
+GET http://localhost:2000/api/authors?fn=cor
+
+
+###
+GET http://localhost:2000/api/authors/639037bb1cc8e1323d0ab395
+
+
+###
+
+
+POST http://localhost:2000/api/authors
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="authorID"
+
+639033a22d91cc728c5ad186
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="lastName"
+
+Wallace
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="born"
+
+February 21, 1962
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="1.png"
+Content-Type: image/png
+
+< ./RESTImages/david.webp
+----WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+
+
+
+POST http://localhost:2000/api/authors/image HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="authorID"
+
+6390d749ac022fedb9a8aeb1
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="3072.webp"
+Content-Type: image/jpeg
+
+< ./RESTImages/3072.webp
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+
