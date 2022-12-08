@@ -3,6 +3,7 @@ import apiRouter from './routes/apiroutes'
 import dotenv from 'dotenv'
 import { connectDB }from './config/db'
 import path from 'path'
+import mainRouter from './routes/mainroutes'
 
 dotenv.config({path: path.join(path.resolve() + '/src/config/.env')})
 
@@ -20,18 +21,13 @@ app.use(express.urlencoded({extended: false}))
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname + '/views'))
 
+app.use(express.static(__dirname + '/public'))
 
 
+app.use('/', mainRouter )
 app.use('/api', apiRouter)
 
-app.get('/', (req, res): void => {
 
-res.render('index')
-})
-app.get('/submit', (req, res): void => {
-
-res.render('submit')
-})
 
 
 app.listen(PORT, () => {

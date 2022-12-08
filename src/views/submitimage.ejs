@@ -1,0 +1,51 @@
+
+    <%- include('partials/header') %>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">Author API</a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/submit"> Add Author </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/submitimage">Submit Image</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/authors">All Authors</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <form action="/api/authors/image" method="post" enctype="multipart/form-data"  class="container justify-content-center">
+              <legend>Submit Image</legend>
+              <div class="form-group">
+                <label for="authorid" class="form-label mt-4">Author ID</label>
+                <input required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="authorID" placeholder="Please enter the Author ID">
+                <small id="emailHelp" class="form-text text-muted">You can obtain a specifics author I.</small>
+              </div>
+              
+              
+              <div class="form-group">
+                <label for="formFile" class="form-label mt-4">Image Upload</label>
+                <input required class="form-control" type="file" id="formFile">
+              </div>
+              <button type="submit" class="btn btn-primary mt-5">Submit</button>
+          </form>
+    
+    
+    

@@ -1,14 +1,13 @@
 import { Request, Response } from "express";
 import cloudinary from "../config/cloudinary";
-import models from "../models/Author";
+import {Author, Image} from "../models/Author";
 import moment from "moment";
 
-const Author = models.Author();
-const Image = models.AuthorImg();
 
 const controllers = {
   async postAuthor(req: Request, res: Response) {
     const { firstName, lastName, born } = req.body;
+    console.log(born)
 
     if (!moment(born, "YYYY-MM-DD", true).isValid()) {
       console.log(req.body);
@@ -101,12 +100,11 @@ const controllers = {
       const result = await Author.find({
         firstName: { $regex: regexfn },
         lastName: { $regex: regexln },
-      });
+      }).catch(err => console.log(err))
       console.log(result);
       res.json(result);
     }
 
-    //query parameter validation
   },
   async postImage(req: Request, res: Response) {
     const authorID = req.body.authorID;

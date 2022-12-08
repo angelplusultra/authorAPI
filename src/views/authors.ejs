@@ -20,37 +20,44 @@
   </head>
   <body >
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">Author API</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarColor01"
-          aria-controls="navbarColor01"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/submit"> Add Author </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/submitimage">Submit Image</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/authors">All Authors</a>
-            </li>
-          </ul>
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Author API</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/submit"> Add Author </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/submitimage">Submit Image</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/authors">All Authors</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-<div class="container">
-    <h1 class="text-center text-justify align-middle">Welcome to the Author API</h1>
-</div>
+      </nav>
+    <ul class="list-group container ">
+        <%result.forEach(author => {%>
+            <li class="list-group-item list-group-item-action ">
+                <a class="nav-link" href="/api/authors/<%=author.id%>" ><%=author.firstName%> <%=author.lastName%></a>
+               
+            </li>
+
+        <%})%>
+    </ul>
+    
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"

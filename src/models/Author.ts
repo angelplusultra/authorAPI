@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { model } from "mongoose";
 
 const models = {
   Author() {
@@ -23,4 +23,7 @@ const models = {
 };
 
 
-export default models
+const Author = models.Author()
+const Image = models.AuthorImg()
+
+export {Author, Image}
