@@ -5,7 +5,7 @@ const models = {
     const authorSchema = new mongoose.Schema({
       firstName: { type: String, required: true },
       lastName: { type: String, required: true },
-      born: { type: String, required: true },
+      born: { type: Date, required: true },
     });
 
     return mongoose.model('author', authorSchema)

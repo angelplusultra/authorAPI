@@ -2,8 +2,9 @@ import express from 'express'
 import apiRouter from './routes/apiroutes'
 import dotenv from 'dotenv'
 import { connectDB }from './config/db'
+import path from 'path'
 
-dotenv.config({path: './src/config/.env'})
+dotenv.config({path: path.join(path.resolve() + '/src/config/.env')})
 
 connectDB()
 
@@ -16,13 +17,20 @@ const PORT = process.env.PORT || 2000
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname + '/views'))
+
 
 
 app.use('/api', apiRouter)
 
 app.get('/', (req, res): void => {
-    console.log('working')
 
+res.render('index')
+})
+app.get('/submit', (req, res): void => {
+
+res.render('submit')
 })
 
 

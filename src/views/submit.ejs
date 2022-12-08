@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/api/authors" enctype="multipart/form-data" method="post">
+        <label for="firstName">First Name</label>
+        <input required name="firstName" type="text">
+        <label for="lastName">Last Name</label>
+        <input required name="lastName" type="text">
+        <label for="born">Date of Birth</label>
+        <input required name="born" type="Date">
+        <label for="image">Image of Author</label>
+        <input required type="file" name="image" id="">
+        <button>Submit</button>
+    </form>
+    
+</body>
+</html>
