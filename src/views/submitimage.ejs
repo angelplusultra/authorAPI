@@ -27,25 +27,32 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/authors">All Authors</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/docs">API Docs</a>
+                  </li>
                 </ul>
               </div>
             </div>
           </nav>
-        <form action="/api/authors/image" method="post" enctype="multipart/form-data"  class="container justify-content-center">
-              <legend>Submit Image</legend>
-              <div class="form-group">
-                <label for="authorid" class="form-label mt-4">Author ID</label>
-                <input required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="authorID" placeholder="Please enter the Author ID">
-                <small id="emailHelp" class="form-text text-muted">You can obtain a specifics author I.</small>
-              </div>
-              
-              
-              <div class="form-group">
-                <label for="formFile" class="form-label mt-4">Image Upload</label>
-                <input required class="form-control" type="file" id="formFile">
-              </div>
-              <button type="submit" class="btn btn-primary mt-5">Submit</button>
-          </form>
+          <div class="d-flex justify-content-center align-items-center vh-100">
+            <form action="/api/authors/image" method="post" enctype="multipart/form-data"  class="container justify-content-center">
+                <p class="display-2"> Submit Image </p>
+                <div class="form-group">
+                  <label for="authorid" class="form-label mt-4">Author ID</label>
+                  <input name="authorID" required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="authorID" placeholder="Please enter the Author ID">
+                  <small id="emailHelp" class="form-text text-muted">You can obtain a specifics author I.</small>
+                </div>
+                
+                
+                <div class="form-group">
+                  <label for="formFile" class="form-label mt-4">Image Upload</label>
+                  <input name="image" required class="form-control" type="file" id="formFile">
+                </div>
+                <button type="submit" class="btn btn-primary mt-5">Submit</button>
+            </form>
+            
+          </div>
+        
     
     
     

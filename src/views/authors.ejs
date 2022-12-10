@@ -17,6 +17,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="boot.css" />
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body >
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -44,20 +45,44 @@
               <li class="nav-item">
                 <a class="nav-link" href="/authors">All Authors</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/docs">API Docs</a>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
-    <ul class="list-group container ">
+      <!-- <ul class="list-group container d-flex justify-content-center align-items-center vh-100  ">
         <%result.forEach(author => {%>
-            <li class="list-group-item list-group-item-action ">
-                <a class="nav-link" href="/api/authors/<%=author.id%>" ><%=author.firstName%> <%=author.lastName%></a>
+            <li class="list-group-item list-group-item-action  ">
+                <a class="nav-link" href="/api/authors/<%=author.id%>" ><%=author.firstName%> <%=author.lastName%>  <%= author.id %></a>
                
             </li>
 
         <%})%>
-    </ul>
+    </ul> -->
     
+
+     <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">ID</th>
+            
+          </tr>
+        </thead>
+        <tbody >
+            <%result.forEach((author, i) => {%>
+                <tr id="link">
+                    <th  scope="row"><%=i + 1%></th>
+                    <td ><a  class="nav-link "  href="/api/authors/<%=author.id%>"><%=author.firstName %> <%=author.lastName %></a></td>
+                    <td><%= author.id%></td>
+                  </tr>
+
+            <%})%>
+        </tbody>
+      </table>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"

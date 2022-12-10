@@ -7,10 +7,8 @@ import moment from "moment";
 const controllers = {
   async postAuthor(req: Request, res: Response) {
     const { firstName, lastName, born } = req.body;
-    console.log(born)
 
     if (!moment(born, "YYYY-MM-DD", true).isValid()) {
-      console.log(req.body);
       res.json({
         status: "Failure",
         msg: "Date of birth not formatted correctly, please format as YYYY-MM-DD ",
@@ -30,7 +28,6 @@ const controllers = {
             const image = await cloudinary.uploader.upload(req.file?.path!, {
               folder: "authors",
             });
-            console.log(image);
             const dbSave = await newAuthor.save();
             const newAuthorImg = new Image({
               cloudinaryID: image.public_id,
@@ -38,9 +35,6 @@ const controllers = {
               authorID: dbSave.id,
             });
             const imageSave = await newAuthorImg.save();
-            console.log(
-              `Result of image upload: ${image} \n Result of author save: ${dbSave}\n Result of new image save ${imageSave}`
-            );
 
             res.json({
               status: "Success",
@@ -60,7 +54,6 @@ const controllers = {
   },
 
   async getImages(req: Request, res: Response) {
-    console.log(req.params.id);
 
     const id = req.params.id;
 
@@ -83,7 +76,6 @@ const controllers = {
   },
 
   async queryAuthor(req: Request, res: Response) {
-    console.log(req.query);
     const { fn, ln } = req.query;
     const queries = Object.keys(req.query);
     // If no query parameters were used and we get all authors
@@ -101,7 +93,6 @@ const controllers = {
         firstName: { $regex: regexfn },
         lastName: { $regex: regexln },
       }).catch(err => console.log(err))
-      console.log(result);
       res.json(result);
     }
 
