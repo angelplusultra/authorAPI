@@ -1,0 +1,56 @@
+
+    <%- include('partials/header') %>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">Author API</a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarColor01">
+                <%- include('partials/navbar') %>
+              </div>
+            </div>
+          </nav>
+         
+          <div class="container d-flex justify-content-center align-items-center vh-100">
+           
+            
+            
+            <form action="/login" method="post" enctype="application/x-www-form-urlencoded" class="container justify-content-center ">
+                <p class="display-2"> Login</p>
+                
+      
+                <div class="form-group">
+                  <label for="authorid" class="form-label mt-4">Email</label>
+                  <input required type="email" class="form-control" name="email"  aria-describedby="firstname" placeholder="Please enter the Author's first name">
+                </div>
+                <div class="form-group">
+                  <label for="authorid" class="form-label mt-4">Password</label>
+                  <input required type="password" class="form-control" name="password"  aria-describedby="lastname" placeholder="Please enter the Author's last name">
+                </div>
+              
+                
+                
+                <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                
+            </form>
+      
+      
+    
+          </div>
+        
+    
+    
+    
+    
+    

@@ -20,10 +20,23 @@ const models = {
     const Image = mongoose.model('authorimage', authorImageSchema)
     return Image
   },
+
+  User(){
+    const userSchema = new mongoose.Schema({
+      email: {type: String, required: true, unique: true},
+      password: {type: String, required: true },
+      apiKey: {type: String, unqiue: true}
+    })
+
+    return mongoose.model('user', userSchema)
+
+    
+  }
 };
 
 
 const Author = models.Author()
 const Image = models.AuthorImg()
+const User = models.User()
 
-export {Author, Image}
+export {Author, Image, User}

@@ -1,0 +1,34 @@
+<ul class="navbar-nav me-auto">
+  <%if(loggedIn){%>
+  <li class="nav-item">
+    <a class="nav-link" href="/api/submit"> Add Author </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/api/submitimage">Submit Image</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/api/authors">All Authors</a>
+  </li>
+
+  <%} else{%>
+  <li class="nav-item">
+    <a class="nav-link" href="/register"> Register </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/login">Login</a>
+  </li>
+
+  <%}%>
+
+  <li class="nav-item">
+    <a class="nav-link" href="/docs">API Docs</a>
+  </li>
+</ul>
+<%if(loggedIn) {%>
+<ul class="navbar-nav">
+  <li class="nav-item">
+    <a class="nav-link" href="/api/logout">Logout</a>
+  </li>
+</ul>
+
+<% }%>

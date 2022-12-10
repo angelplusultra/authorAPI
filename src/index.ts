@@ -6,7 +6,15 @@ import path from 'path'
 import mainRouter from './routes/mainroutes'
 import flash from 'connect-flash'
 import session from 'express-session'
+import passport from 'passport'
+import { LocalStrat } from './strats/passport'
 
+
+
+
+
+
+   
 dotenv.config({path: path.join(path.resolve(__dirname + '/config/.env')  )})
 
 connectDB()
@@ -35,10 +43,14 @@ app.use(session({
 
 app.use(flash())
 
+LocalStrat()
 
 
+app.use(passport.initialize())
+app.use(passport.session())
 
-app.use('/', mainRouter )
+
+app.use('/', mainRouter)
 app.use('/api', apiRouter)
 
 
