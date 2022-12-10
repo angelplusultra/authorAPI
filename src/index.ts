@@ -4,6 +4,8 @@ import dotenv from 'dotenv'
 import { connectDB }from './config/db'
 import path from 'path'
 import mainRouter from './routes/mainroutes'
+import flash from 'connect-flash'
+import session from 'express-session'
 
 dotenv.config({path: path.join(path.resolve(__dirname + '/config/.env')  )})
 
@@ -23,7 +25,15 @@ app.use(express.urlencoded({extended: false}))
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname + '/views'))
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'));
+
+app.use(session({
+    secret: 'lhdakhds',
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use(flash())
 
 
 

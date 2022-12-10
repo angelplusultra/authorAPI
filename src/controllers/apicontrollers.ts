@@ -35,11 +35,8 @@ const controllers = {
               authorID: dbSave.id,
             });
             const imageSave = await newAuthorImg.save();
-
-            res.json({
-              status: "Success",
-              msg: "Files uploaded succesfully and data stored to API",
-            });
+            req.flash('alert', 'New author added!')
+            res.redirect('/submit')
           }
         } else {
           res.json({
@@ -104,7 +101,8 @@ const controllers = {
     try {
       const result = await Author.findById(authorID).lean();
       if (!result) {
-        res.json("incorrect id");
+        req.flash('failure', 'Inccorect author ID')
+        res.redirect('/submitimage')
       } else {
         const image = await cloudinary.uploader.upload(req.file?.path!, {
           folder: "authors",
@@ -116,16 +114,13 @@ const controllers = {
         });
 
         const finalresult = await newImage.save();
-
-        res.json({
-          status: "Success",
-          body: finalresult,
-          msg: "File was uploaded succesfully",
-        });
+        req.flash('alert', 'New Image added')
+        res.redirect('/submitimage')
       }
     } catch (error) {
       console.log(error);
-      res.json("incorrect id");
+      req.flash('alert', 'Something went wrong, check ID')
+      res.status(400).redirect('/submitimage')
     }
   },
 };

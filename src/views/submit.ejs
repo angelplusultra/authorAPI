@@ -34,8 +34,13 @@
           </div>
         </div>
       </nav>
+      <%if(message.length > 0){%>
+        <div class="alert alert-success alert-dismissible" role="alert"><%=message %></div>
+      <%}%>
      
       <div class="container d-flex justify-content-center align-items-center vh-100">
+       
+        
         
         <form action="/api/authors" method="post" enctype="multipart/form-data" class="container justify-content-center ">
             <p class="display-2"> Add Author </p>

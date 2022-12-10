@@ -11,11 +11,14 @@ router.get("/", (req, res): void => {
   }).render("index");
   console.log(req.headers.cookie)
 });
+
 router.get("/submit", (req, res): void => {
-  res.render("submit")
+  res.render("submit", {message: req.flash('alert')})
 });
+
 router.get("/submitimage", (req, res): void => {
-  res.render("submitimage");
+  
+  res.render("submitimage", {message: req.flash('alert')});
 });
 
 router.get("/authors", async (req, res) => {
